@@ -1,9 +1,13 @@
 
 import streamlit as st
 from typing_extensions import override
+import openai
+
+print(openai.__version__)
+
 from openai import AssistantEventHandler
 import re
-import openai
+
 
 openai_key = st.secrets['OPENAI_API_KEY']
 model = st.secrets['OPENAI_MODEL']
