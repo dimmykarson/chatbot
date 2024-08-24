@@ -20,6 +20,8 @@ client = openai.Client(api_key=openai_key)
 assistant_id = st.secrets['OPENAI_ASSISTANT_ID']
 vector_store_id = st.secrets['OPENAI_VECTOR_STORE_ID']
 
+print(assistant_id, vector_store_id)
+
 assistant = client.beta.assistants.retrieve(assistant_id)
 vector_store = client.beta.vector_stores.retrieve(vector_store_id)
 
