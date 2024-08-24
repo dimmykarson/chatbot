@@ -1,6 +1,6 @@
 
 import openai
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import os
 import time
 import streamlit as st
@@ -9,16 +9,21 @@ from openai import AssistantEventHandler
 import re
 
 
-load_dotenv()
+#load_dotenv()
 
-openai_key = os.getenv('OPENAI_API_KEY')
-model = os.getenv('OPENAI_MODEL', 'gpt-4o-mini')
-max_tokens = os.getenv('OPENAI_MAX_TOKENS', 250)
+openai_key = st.secrets['OPENAI_API_KEY']
+model = st.secrets['OPENAI_MODEL']
+if not model:
+    model = 'gpt-4o-mini'
+
+max_tokens = st.secrets['OPENAI_MAX_TOKENS']
+if not max_tokens:
+    max_tokens = 250
 
 client = openai.Client(api_key=openai_key)
 
-assistant_id = os.getenv('OPENAI_ASSISTANT_ID')
-vector_store_id = os.getenv('OPENAI_VECTOR_STORE_ID')
+assistant_id = st.secrets['OPENAI_ASSISTANT_ID']
+vector_store_id = st.secrets['OPENAI_VECTOR_STORE_ID']
 
 assistant = client.beta.assistants.retrieve(assistant_id)
 vector_store = client.beta.vector_stores.retrieve(vector_store_id)

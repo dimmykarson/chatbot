@@ -1,18 +1,25 @@
 
 import streamlit as st
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import time
 from PIL import Image
 from openai_utils import create_thread, get_answer 
 
-load_dotenv()
+#load_dotenv()
 
-openai_key = os.getenv('OPENAI_API_KEY')
-model = os.getenv('OPENAI_MODEL', 'gpt-4o-mini')
-max_tokens = os.getenv('OPENAI_MAX_TOKENS', 250)
+openai_key = st.secrets['OPENAI_API_KEY']
+model = st.secrets['OPENAI_MODEL']
+if not model:
+    model = 'gpt-4o-mini'
 
-time_delay = os.getenv('OPENAI_TIME_DELAY', 0.1)
+max_tokens = st.secrets['OPENAI_MAX_TOKENS']
+if not max_tokens:
+    max_tokens = 250
+
+time_delay = st.secrets['OPENAI_TIME_DELAY']
+if not time_delay:
+    time_delay = 0.1
 
 
 im = Image.open("imgs/icev_logo.png")
