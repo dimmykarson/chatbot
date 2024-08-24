@@ -1,12 +1,9 @@
 
 import streamlit as st
 import os
-#from dotenv import load_dotenv
 import time
 from PIL import Image
 from openai_utils import create_thread, get_answer 
-
-#load_dotenv()
 
 openai_key = st.secrets['OPENAI_API_KEY']
 model = st.secrets['OPENAI_MODEL']

@@ -1,15 +1,9 @@
 
-import openai
-#from dotenv import load_dotenv
-import os
-import time
 import streamlit as st
 from typing_extensions import override
 from openai import AssistantEventHandler
 import re
-
-
-#load_dotenv()
+import openai
 
 openai_key = st.secrets['OPENAI_API_KEY']
 model = st.secrets['OPENAI_MODEL']
