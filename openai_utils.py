@@ -2,9 +2,6 @@
 import streamlit as st
 from typing_extensions import override
 import openai
-
-print(openai.__version__)
-
 from openai import AssistantEventHandler
 import re
 
