@@ -30,7 +30,7 @@ This project serves as a starting point for creating a chatbot powered by OpenAI
 To get started, clone this repository and install the required dependencies:
 
 ```bash
-git clone [https://github.com/your-username/openai-chatbot-base.git](https://github.com/dimmykarson/chatbot.git)
+git clone https://github.com/dimmykarson/chatbot.git
 cd chatbot
 pip install -r requirements.txt
 ```
